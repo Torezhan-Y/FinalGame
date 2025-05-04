@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c65cw8m63e11s"]
+
+[ext_resource type="Texture2D" uid="uid://dnqe1a03s54gc" path="res://assets/img/obstacles/photo_2025-05-01_23-56-59-removebg-preview.png" id="1_qu0vn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4q30l"]
+size = Vector2(120.75, 117.25)
+
+[node name="CryingStud" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(10.9075, -28.361)
+scale = Vector2(0.28437, 0.261444)
+texture = ExtResource("1_qu0vn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(9.625, -28.625)
+shape = SubResource("RectangleShape2D_4q30l")
