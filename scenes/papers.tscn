@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://crugqy7j4jt4a"]
+
+[ext_resource type="Script" uid="uid://boxpt8tyqct88" path="res://scenes/papers.gd" id="1_415bp"]
+[ext_resource type="Texture2D" uid="uid://s0ik4gwmv6ol" path="res://assets/img/obstacles/papers-removebg-preview.png" id="2_0qjye"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5lysr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0qjye")
+}],
+"loop": true,
+"name": &"flying",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3po83"]
+size = Vector2(96.25, 90.4688)
+
+[node name="Papers" type="Area2D"]
+script = ExtResource("1_415bp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -147)
+scale = Vector2(0.220924, 0.206794)
+sprite_frames = SubResource("SpriteFrames_5lysr")
+animation = &"flying"
+autoplay = "flying"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-3, -148)
+shape = SubResource("RectangleShape2D_3po83")
