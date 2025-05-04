@@ -1,0 +1,72 @@
+Final Project Game:  Campus Rush!
+
+The player controls a student who is constantly running forward. The player must jump over obstacles like fallen students or dodge falling papers.
+The game continues indefinitely, with the player failing when they hit an obstacle or are touched by falling papers.
+
+
+
+✅ Command Pattern
+Used to encapsulate the player's actions:
+
+JumpCommand
+
+MoveLeftCommand
+Each command performs a specific action, making it easier to bind actions to buttons, AI, or macro commands.
+
+✅ State Pattern
+The player's state is modeled using individual classes:
+
+IdleState
+
+RunState
+
+JumpState
+
+DuckState
+Each state defines its own input handling and animation logic. This simplifies the management of the player's behavior.
+
+✅ Observer Pattern
+The ScoreManager class implements the observer pattern:
+
+Objects tracking the score register as observers.
+
+When the score changes, HUD and other interested objects are automatically notified.
+
+✅ Singleton Pattern
+Ensures that only one instance of a class exists:
+
+GameManager is the global game manager controlling the main game flow (starting, restarting, and managing the game state).
+
+✅ Factory Pattern
+Separates the creation of objects from their usage:
+
+ObstacleFactory creates different types of obstacles for the game depending on the current game state.
+
+assets/: Contains resources such as images, sounds, and fonts.
+
+scenes/: Contains various scenes for backgrounds, obstacles, and player-related elements.
+
+scripts/: Contains all the game scripts, including the logic for the player's movements, states, game management, and obstacles.
+
+How to Play
+1. Start a New Game: Upon loading the game, click the "Start" button to begin playing.
+
+2. Move and Jump: Use the left arrow key to move the player left and the up arrow key to jump.
+
+3. Avoid Obstacles: Navigate through various obstacles by jumping or ducking.
+
+4. Score Points: Points increase as you progress, and the difficulty rises as the score increases.
+
+5. Game Over: If the player collides with an obstacle, the game ends, and the player is shown the game over screen.
+
+
+Future Enhancements:
+Add more levels and subjects.
+
+Add chasing teacher.
+
+Integrate additional learning features.
+
+
+Conclusion
+This project is an example of combining educational gameplay with modern software engineering practices like design patterns. By using these patterns, we ensure that the game's code is modular, reusable, and easy to maintain.
