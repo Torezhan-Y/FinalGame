@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://ta0webu32dxh"]
+
+[ext_resource type="Texture2D" uid="uid://c4fcccaoi5wsc" path="res://assets/img/obstacles/DyingStud.png" id="1_mlq68"]
+
+[node name="DyingStud" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(15, -12)
+scale = Vector2(0.324448, 0.271446)
+texture = ExtResource("1_mlq68")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(16.0102, -15)
+scale = Vector2(2.84615, 3)
+polygon = PackedVector2Array(34, -3, 34.4288, 12.6667, -1.05764, 15.3333, -10.1928, 13.6667, -33.7333, 10.3333, -27.409, -3, -18, -10.6667, 14, -9.33333)
