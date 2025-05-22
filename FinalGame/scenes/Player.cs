@@ -1,4 +1,5 @@
 using Godot;
+using System;
 
 public partial class Player : CharacterBody2D
 {
@@ -12,16 +13,10 @@ public partial class Player : CharacterBody2D
 	public override void _Ready()
 	{
 		_animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-		_jumpSound = GetNode<AudioStreamPlayer>("JumpSound");
+		_jumpSound = GetNodeOrNull<AudioStreamPlayer>("JumpSound");
 
 		State = new IdleState();
 		PlayAnimation("idle");
-	}
-
-	public void PlayAnimation(string animName)
-	{
-		// Принудительно воспроизводим анимацию
-		_animatedSprite?.Play(animName);
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -30,19 +25,32 @@ public partial class Player : CharacterBody2D
 		{
 			if (Input.IsActionJustPressed("ui_accept"))
 			{
+				GD.Print("Pressed ui_accept");
 				_gameStarted = true;
 				State = new RunState();
+				GD.Print("Game started. Switched to RunState.");
 			}
+			return; // ❗Не выполнять движение и обновления до старта
 		}
 
+		// Гравитация
 		Vector2 velocity = Velocity;
-		velocity.Y += 4200 * (float)delta;
+		velocity.Y += 4800 * (float)delta;
 		Velocity = velocity;
 
 		State?.HandleInput(this);
 		State?.Update(this, (float)delta);
 
 		MoveAndSlide();
+	}
+
+	public void PlayAnimation(string animName)
+	{
+		if (_animatedSprite != null && _animatedSprite.Animation != animName)
+		{
+			GD.Print("PlayAnimation: " + animName);
+			_animatedSprite.Play(animName);
+		}
 	}
 
 	public void Jump()

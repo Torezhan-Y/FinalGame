@@ -22,12 +22,12 @@ script = ExtResource("1_415bp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-1, -139)
+position = Vector2(1, -105)
 scale = Vector2(0.220924, 0.206794)
 sprite_frames = SubResource("SpriteFrames_5lysr")
 animation = &"flying"
 autoplay = "flying"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(1, -146.617)
+position = Vector2(-1, -107)
 shape = SubResource("RectangleShape2D_3po83")
